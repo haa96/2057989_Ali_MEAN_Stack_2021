@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Planner</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="operation.js"></script>
+</head>
+<body>
+	<header class="h2">Program Managers</header>
+    <form action="">
+    <dl>
+      <dt>Client Name:
+      <dd><input type="text" name="c_name" id="c_name">
+      <dt>Project Name:
+      <dd><input type="text" name="p_name" id="p_name">
+      <dt>Budget:
+      <dd><input type="number" size="50" name="budget" id="budget">
+    </dl>
+    <input type="submit" class="btn" onclick = "saveData()" value="Add"/>
+    <input type="reset"  class="btn" value="Clear"/>
+    <input type="button" class="btn" onclick="location.href='BudgetPlanner.html'" value="Home"/>
+    
+  </form>
+
+</body>
+</html>
+
