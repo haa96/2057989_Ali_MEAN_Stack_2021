@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Cart Management</title>
+    <link rel = "icon" href = 
+    "https://pbs.twimg.com/profile_images/1341131884537860097/kYjaEIQA.png" 
+            type = "image/x-icon">
+    <style>
+        .card{
+            margin-bottom: 35px;
+        }
+    </style>
+<script src="operation.js"></script>
+
+</head>
+<body style="background-color: rgb(7, 43, 31);" onload=checkIfEmpty()>
+    
+        <div class="container" style="background-color: #376e58; padding: 15px;">
+                <h1 style="color: aliceblue;"> Welcome to Cart Management</h1>
+        </div>
+</br>
+</br>
+</br>
+    <div class="container col-6" style=" background-color: #376e58; padding: 15px;" >
+            <div>
+                <h2 style="color:aliceblue">Shopping Cart</h2>
+            </div>
+        </br>
+            <div> 
+                <h4 style="color:aliceblue" id="items"></h4>
+            </div>
+        </br>
+            <div class="row">
+                <div class="col-6 ">
+                    <button type="button" class="btn btn-primary btn-lg btn-block" onclick=location.href='checkout.html'   id="checkout">Checkout</button>
+                </div>
+                <div class="col-6">
+                
+                    <button type="button" class="btn btn-danger btn-lg btn-block" onclick="emptyData()"> Empty Cart</button>
+                </div>
+            </div>
+    </div>
+</br>
+</br>
+</br>
+    <div class="container" id="outter" style="color: rgb(25, 15, 112);">
+        <div class="row" id="row">
+            <div class="col-4">
+                <div class= "card" style= "width: 18rem; margin-bottom: 35px;">
+                 <img class= card-img-top src="mango.jpeg" alt=Card image cap>
+                    <div class="card-body">
+                        <h1 class="card-title"> Mango </h1>
+                        <p class="card-text"> Price: $20 </p>
+                        <input type="button" value="Add to cart" id= "0" class= "btn-info" onclick= add('Mango',20)>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class= "card" style= "width: 18rem; margin-bottom: 35px;">
+                 <img class= card-img-top src="cam.jpeg" alt=Card image cap>
+                    <div class="card-body">
+                        <h1 class="card-title"> Camera </h1>
+                        <p class="card-text"> Price: $500 </p>
+                        <input type="button" value="Add to cart" id= "1" class= "btn-info" onclick= add('Camera',500)>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class= "card" style= "width: 18rem; margin-bottom: 35px;">
+                 <img class= card-img-top src="iphone.jpeg" alt=Card image cap>
+                    <div class="card-body">
+                        <h1 class="card-title"> iPhone </h1>
+                        <p class="card-text"> Price: $1000 </p>
+                        <input type="button" value="Add to cart" id= "2" class= "btn-info" onclick= add('iPhone',1000)>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class= "card" style= "width: 18rem; margin-bottom: 35px;">
+                 <img class= card-img-top src="tshirt.jpeg" alt=Card image cap>
+                    <div class="card-body">
+                        <h1 class="card-title"> T-Shirt </h1>
+                        <p class="card-text"> Price: $50 </p>
+                        <input type="button" value="Add to cart" id= "3" class= "btn-info" onclick= add('T-Shirt',50)>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+          
+
+    
+</body>
+</html>
