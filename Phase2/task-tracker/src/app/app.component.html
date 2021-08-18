@@ -1,0 +1,71 @@
+
+
+  <mat-grid-list cols="3"  class="title" rowHeight="6:1"> 
+    
+      <h1>Task Tracker</h1>
+    
+  </mat-grid-list>
+
+
+  <mat-grid-list cols="2" rowHeight="9:1"> 
+      <mat-grid-tile>
+        <h2>To Do Tasks</h2>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <h2>To Do Table</h2>
+      </mat-grid-tile>
+  </mat-grid-list>
+
+
+  <mat-grid-list cols="2" rowHeight="2:1">
+    <mat-grid-tile>
+    
+    <form [formGroup]="taskRef" (ngSubmit)="populateTable()"> 
+        <mat-form-field class="input-styling" appearance="fill"> 
+            <mat-label>Id</mat-label>
+            <input matInput formControlName="id"/>
+        </mat-form-field>
+        <br/>
+        <mat-form-field class="input-styling" appearance="fill"> 
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="name"/>
+      </mat-form-field>
+      <br/>
+      <mat-form-field class="input-styling" appearance="fill"> 
+        <mat-label>Task</mat-label>
+        <input matInput formControlName="task"/>
+    </mat-form-field>
+    <br/>
+    <mat-form-field class="input-styling" appearance="fill"> 
+      <mat-label>Dead Line</mat-label>
+      <input matInput type="date" formControlName="duedate"/>
+  </mat-form-field>
+  <br/>
+        <button type="submit" mat-raised-button color="primary">Sign In</button>
+        <button type="reset" mat-raised-button style="background-color: bisque;">Reset</button>
+    </form>
+    <br/>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <div>
+      <table border="1">
+          <tr>
+              <th>Id</th>
+              <th>Name</th>
+              <th>Task</th>
+              <th>Deadline</th>
+          </tr>
+          <tr *ngFor="let user of myArray">   
+                  <td>{{user.id}}</td>
+                  <td>{{user.name}}</td>
+                  <td>{{user.task}}</td>
+                  <td>{{user.duedate}}</td>
+          </tr>
+      </table>
+  </div>
+  </mat-grid-tile>
+  </mat-grid-list>
+
+
+

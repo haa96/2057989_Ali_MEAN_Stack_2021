@@ -1,0 +1,17 @@
+mat-grid-tile{
+  background-color: lavenderblush;
+}
+.title{
+    background-color: indigo;
+    color: ivory;
+}
+  .input-styling {
+    width: 250px;
+  }
+mat-table{
+  width: 100%;
+}
+
+table {
+  width: 100%;
+}
