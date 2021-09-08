@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>ChatApp</title>
+    <script type="text/JavaScript">
+    let ws = new WebSocket("ws://localhost:9090");
+
+    //open the connection
+ws.onopen = ()=>{
+        //send data to web socket server application
+        ws.send("Hello Server, I am Web Socket Client App!");
+    info = ()=>{
+        addChat();
+        let msg = document.getElementById("dd").value;
+        ws.send(msg);
+        document.getElementById("dd").value = "";
+        var user = document.getElementById("uname").value;
+        var chat = document.getElementById("chatbox");
+        var textToAdd = document.createTextNode(user+": "+ msg);
+        chat.appendChild(textToAdd);
+        var br = document.createElement("br");
+        chat.appendChild(br);
+        
+        ws.onmessage = (msg)=>{
+        
+            var server = document.getElementById("chatbox");
+            var textToAdd = document.createTextNode("Server: "+ msg.data);
+            server.appendChild(textToAdd);
+            var br = document.createElement("br");
+            chatbox.appendChild(br);
+        }
+      
+    }
+
+        
+      
+}
+
+const addChat = async()=>{
+        await fetch('/api/chat/save',{
+        method: 'POST',
+        body: JSON.stringify(userInput()),
+        headers: {'Content-Type':'application/json'}
+    })
+     alert("saved successfully!!!")
+    }
+        const userInput = ()=>{
+        const input = {}
+        document.querySelectorAll('input').forEach(info=>{input[info.name]=info.value})
+        return input
+}
+    
+    </script>
+</head>
+<body>
+    
+    <div class="container">
+        <nav class="navbar navbar-light" style="background-color: #206399;">
+            <h2 style="color: aliceblue;">The Chat App</h2>  
+        </nav>
+</div>
+<br>
+<hr>    
+        <div class="container col-4" style="background-color: #206399;">
+        <label for="formGroupExampleInput" style="color:aliceblue; font-family:Arial, Helvetica, sans-serif; margin-top: 20px;">Name</label>
+        <input type="text" class="form-control" id="uname" name="uname" placeholder="your name">
+        </div>
+
+    <div class="container col-4" style="background-color: #206399;" >
+
+        <form style="border: rgb(176, 176, 211); padding-bottom: 20px;">
+             <div class="form-group">
+                 <label for="formGroupExampleInput" style="color:aliceblue; font-family:Arial, Helvetica, sans-serif; margin-top: 20px;">Message</label>
+                 <input type="text" class="form-control" id="dd" name="message"placeholder="Type...">
+             </div>
+             <button type="button" class="btn btn-success btn-lg btn-block" style="font-family:Arial, Helvetica, sans-serif" onclick= info() id="blogBtn">Send</button>
+         </form>
+     </div>
+
+    <br>
+    <hr>
+
+     <div class="container" id="outter" style="color: rgb(25, 15, 112);">
+        <div class="row" id="row">
+            <div class="col-6">
+                <div>
+                    <p id="server" style="font-weight: bold;"></p>
+                    <p id="chatbox"></p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+</html>
